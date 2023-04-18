@@ -15,7 +15,9 @@ public class Shuffle {
 
     }
 
-    // method to solve prompt
+    // 1470. Shuffle the Array
+    // Given the array nums consisting of 2n elements in the form [x1,x2,...,xn,y1,y2,...,yn].
+    //Return the array in the form [x1,y1,x2,y2,...,xn,yn].
     public static int[] shuffle(int[] nums, int n) {
 
         //local variables
@@ -25,15 +27,23 @@ public class Shuffle {
         // for loop that iterates through array starting from element 0 to end
         for (int i = 0; i < ans.length; i++) {
 
-            // conditional statement that
+            // conditional statement that checks to see if current index i is even
             if (i % 2 == 0) {
+
+                // if even then place element from first half of array into current index
                 ans[i] = nums[evenCount];
+
+                // increment var that corresponds to the index of even numbers
                 evenCount++;
             }
 
-            //
+            // if current index i is odd then execute this code block
             else {
+
+                // assign odd index to the var n which is half of array size
                 ans[i] = nums[(n)];
+
+                // increment the var that corresponds to the second half of array
                 n++;
             }
         }
