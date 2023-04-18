@@ -31,6 +31,7 @@ public class Two_Sum {
                 // conditional statement to see if ints at indices equal target
                 if ( nums[i] + nums[j] == target  && nums[i] != nums[j])
                 {
+                    //
                     result[0] = j;
                     result[1] = i;
                     return Arrays.copyOf(result, result.length);
