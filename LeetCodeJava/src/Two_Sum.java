@@ -19,7 +19,7 @@ public class Two_Sum {
     {
         // local variables
         int size = nums.length-1;
-        int result[] = new int[2];
+        int[] result = new int[2];
 
         // nested for loop that will iterate through two indices of array
         for (int i =0; i <= size - 1; i++ ){
