@@ -21,8 +21,7 @@ public class Two_Sum {
         int size = nums.length-1;
         int result[] = new int[2];
 
-        /* nested for loop that will iterate through two indices of array */
-
+        // nested for loop that will iterate through two indices of array
         for (int i =0; i <= size - 1; i++ ){
             System.out.println("index i: " + i);
 
@@ -38,6 +37,8 @@ public class Two_Sum {
                 }
             }
         }
-        return Arrays.copyOf(result, result.length);
+
+        // returns a
+        return twoSum(result, result.length);
     }
 }

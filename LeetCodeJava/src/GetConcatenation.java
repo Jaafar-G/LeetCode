@@ -13,13 +13,25 @@ public class GetConcatenation {
         System.out.println(Arrays.toString(getConcatenation(nums)));
 
     }
+
+    // method to solve prompt
     public static int[] getConcatenation(int[] nums){
+
+        //local variables
         int[] ans = new int[nums.length*2];
         int n = nums.length;
+
+        // for loop that iterates through array starting from element 0 to end
         for (int i = 0; i < nums.length; i++){
+
+            // assign each element of param array to corresponding element of answer array
             ans[i] = nums[i];
+
+            // assign each element of param array to second half of answer array to mimic concatenation
             ans[i + n] = nums[i];
         }
+
+        // returns answer array
         return ans;
     }
 }

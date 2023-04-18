@@ -14,11 +14,11 @@ public class LeftRightDifference {
         System.out.println(leftRightDifference(nums));
 
     }
-    /* Method solution
-     * @param nums
-     *
-     * */
+
+    // method to solve prompt
     public static int[] leftRightDifference(int[] nums){
+
+        // local variables
         int[] ans = new int[nums.length];
         int[] leftSum = new int[nums.length];
         int[] rightSum = new int[nums.length];

@@ -13,15 +13,20 @@ public class BuildArray {
         System.out.println(Arrays.toString(buildArray(nums)));
     }
 
-    /*
-    * @param
-    *
-    * */
+    // method to solve prompt
     public static int[] buildArray(int[] nums) {
+
+        // local variables
         int[] ans = new int[nums.length];
+
+        // for loop that iterates through nums array starting from element 0 to end
         for (int i = 0; i < nums.length; i++) {
+
+            // assign each element of param array to corresponding element of ans array
             ans[i] = nums[nums[i]];
         }
+
+        // returns the answer array
         return ans;
     }
 }
