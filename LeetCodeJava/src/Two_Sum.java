@@ -39,7 +39,7 @@ public class Two_Sum {
             }
         }
 
-        // returns a
+        // returns
         return twoSum(result, result.length);
     }
 }
