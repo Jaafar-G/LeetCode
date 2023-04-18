@@ -7,7 +7,7 @@ public class Two_Sum {
     public static void main(String[] args) {
 
         // Create array that will be passed as param to method
-        int nums[] = new int[]{2,7,11,15};
+        int[] nums = new int[]{2,7,11,15};
 
         // calls method and prints out the result
         System.out.println(Arrays.toString(twoSum(nums, 9)));
