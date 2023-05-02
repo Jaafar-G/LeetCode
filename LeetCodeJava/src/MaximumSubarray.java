@@ -20,16 +20,21 @@ public class MaximumSubarray {
         int minC = Integer.MIN_VALUE;
         int i = 0;
 
+        // while loop to iterate through nums array
         while( i < nums.length )
         {
+            // conditional statements that orders elements
             if ( sum < 0 && ( nums[i] >= sum ) )
             {
                 sum = 0;
             }
+            // finds sum of numbers in sub array
             sum+= nums[i];
+
             minC = Math.max(minC, sum);
             i++;
         }
+        //return answer
         return minC;
     }
 }
