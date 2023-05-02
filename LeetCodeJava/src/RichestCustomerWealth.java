@@ -1,7 +1,5 @@
 public class RichestCustomerWealth
 {
-
-
     // Main method to print out result of solution
     public static void main(String[] args) {
 
@@ -42,7 +40,6 @@ public class RichestCustomerWealth
                 }
             }
         }
-
         // return stored result
         return result;
     }
