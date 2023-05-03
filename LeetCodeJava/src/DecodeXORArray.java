@@ -28,12 +28,12 @@ public class DecodeXORArray
         // for loop to iterate through encoded
         for (int i = 1; i <= encoded.length; i++)
         {
-            // to decode a XOR operation you must
-            // know one of the elements that was xored
-            // since we received the first number of the
-            // decoded array we can xor it with the encoded
-            // element to get the original element this
-            // is fundamental to the XOR bitwise operator
+            // to decode a XOR operation you must know
+            // one of the elements that was xored since
+            // we received the first number of the decoded
+            // array we can xor it with the encoded element
+            // to get the original element this is a
+            // fundamental property of the XOR bitwise operator
             decoded[i] = decoded[i-1] ^ encoded[i-1];
         }
 
