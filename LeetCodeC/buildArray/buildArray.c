@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 
 // Declaration of function buildArray
-// precondition: Nums must be a valid integer array of size numSize.
-// precondition: returnSize must point to a valid integer.
 int* buildArray(int* nums, int numsSize, int* returnSize);
 
 //Global variable to store return size of the buildArray function.
 int returnSizeValue;
+
+void printArray(int *arr, int* returnSize);
 
 int main()
 {
@@ -20,34 +21,69 @@ int main()
 
   // call buildArray with the test data to create new array that satisfies specifications
   // Postcondition: an array is returned of size sizeof(numsSize)
-  buildArray(nums, numsSize, returnSize);
+  int *newArray = buildArray(nums, numsSize, returnSize);
+  if (newArray == NULL) {
+          printf("Failed to allocate newArray.\n");
+          return 1; // Exit with error code
+      }
+  printArray(newArray, returnSize);
+  free(newArray); //clen up
+
   return 0;
 }
 
 
-//buildArray function to form array of correct values
+// Given a zero-based permutation nums (0-indexed),
+// build an array ans of the same length where 
+// ans[i] = nums[nums[i]] for each 0 <= i < nums.length
 // Preconditions: 
-//1. result array must be of size sizeof(nums)
-//2. nums points to a valid intefer array of size numsSize
-//3. returnSize points to a valid integer
+//1. result array must be of size of returnSize
+//2. nums points to a valid integer array of size numsSize
+//3. returnSize is not NULL
 // Postcondition:
-// 1. The returned array's value are rearranged according to the problems specification.
-// 2. returned array size is set to size of nums.
+// 1. result[i] = nums[nums[i]] 
+// 2. resulting array size == returnSize.
 int* buildArray(int* nums, int numsSize, int* returnSize)
 {
-  // set a pointer to numsSize
+  // Preconditions 2 
+  assert(nums != NULL);
+  //Precondition 3
+  assert(returnSize != NULL);
+
+  // Safe to derefference pointer here
   *returnSize = numsSize;
 
-  // allocate a block of memory that is the number of elements multiplied by bytes of type int.
-  // memory block is casted to an int pointer and set to result to hold resulting array.
+  //Allocate memory for array
   int* result = (int*) malloc(numsSize * sizeof(int));
+  if(result ==NULL)
+  {
+    printf("Could not allocate memory for result!...");
+    return NULL;
+  }
 
   //for loop to iterate through array assigning the correct values described by problems
   for(int i = 0; i < numsSize; i++)
+  //@loop_invariant 0 <= i < numsSize
   {
+    //Catch error
+    if(nums[i]<0 || nums[i] >= numsSize)
+    {
+      free(result); //Clean up memory
+      return NULL;
+    }
     result[i] = nums[nums[i]];
   }
 
   //return the resulted array
   return result;
+}
+
+void printArray(int* arr, int* returnSize)
+{
+  printf("New array: ");
+  for (int i = 0; i < *returnSize; i++) 
+  {
+    printf("%d ", arr[i]);
+  }
+  printf("\n");
 }
